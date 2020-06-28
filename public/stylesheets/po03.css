@@ -1,0 +1,77 @@
+#item-po03 img {
+    width: 200px;
+    height: 200px;
+}
+
+#item-po03 {
+    width: 350px;
+    height: 350px;
+    margin: 50px;
+    background-color: #222222;
+    display: block;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    word-wrap: break-word;
+    border-radius: 15px;
+}
+
+#items-display {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#item-po03:hover {
+    width: 360px;
+    height: 360px;
+    margin: 40px;
+}
+
+#theItem {
+    width: 350px;
+    height: auto;
+    margin: 50px auto 50px;
+    background-color: #222222;
+    display: block;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    word-wrap: break-word;
+    border-radius: 15px;
+}
+
+#theItem img {
+    width: 300px;
+}
+
+#description {
+    background-color: #222222;
+    color: white;
+    width: 350px;
+    height: auto;
+    margin: 50px auto 50px;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+#description p {
+    width: auto;
+    font-size: 15px;
+}

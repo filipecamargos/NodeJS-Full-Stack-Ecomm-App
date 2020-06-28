@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../includes/header.ejs %>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
+</head>
+
+<body>
+    <% include ../includes/shopnav.ejs %>
+
+        <main>
+            <% if (errorMessage) { %>
+                <div class="user-message user-message--error">
+                    <%= errorMessage %>
+                </div>
+                <% } %>
+                    <form class="login-form" action="/signup" method="POST" novalidate>
+                        <div class="form-control">
+                            <label for="email">E-Mail</label>
+                            <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="email" name="email" id="email" value="<%= oldInput.email %>">
+                        </div>
+                        <div class="form-control">
+                            <label for="password">Password</label>
+                            <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" type="password" name="password" id="password" value="<%= oldInput.password %>">
+                        </div>
+                        <div class="form-control">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input class="<%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : '' %>" type="password" name="confirmPassword" id="confirmPassword" value="<%= oldInput.confirmPassword %>">
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class="btn" type="submit">Signup</button>
+                    </form>
+        </main>
+</body>
+
+</html>

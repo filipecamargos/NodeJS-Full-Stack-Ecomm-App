@@ -1,0 +1,54 @@
+.card-img-top {
+    width: 200px;
+    height: 180px;
+}
+
+.card p {
+    width: 200px;
+}
+
+.items-display {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.two-buttons {
+    display: flex;
+}
+
+.two-buttons .second-button {
+    margin-left: 10px;
+}
+
+.add-product {
+    width: 500px;
+}
+
+.form-edition {
+    margin-left: 50px;
+}
+
+.inside-cart {
+    margin-left: 10px;
+}
+
+.user-message {
+    margin: auto;
+    width: 90%;
+    border: 1px solid #4771fa;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background: #b9c9ff;
+    text-align: center;
+}
+
+.user-message--error {
+    border-color: red;
+    background: rgb(255, 176, 176);
+    color: red;
+}
+
+.form-control input.invalid,
+.form-control textarea.invalid {
+    border-color: red;
+}

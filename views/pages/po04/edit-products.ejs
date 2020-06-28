@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../includes/header.ejs %>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
+</head>
+
+<body>
+    <% include ../../includes/shopnav.ejs %>
+        <main>
+            <div class="items-display">
+                <% data.forEach(items => { %>
+                    <div class="card" style="width: 18rem;" class="product-shop">
+                        <img class="card-img-top" src="<%= items.imageUrl %>" alt="Product for Shoping">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= items.title %> - R$
+                                    <%= items.price %>
+                            </h5>
+                            <p class="card-text">
+                                <%= items.description %>
+                            </p>
+                            <div class="two-buttons">
+                                <form action="/edit-products/edit-item" method="POST">
+                                    <input type="hidden" name="id" value="<%= items.id%>">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button type="submit" class="btn btn-info">Edit Item</button>
+                                </form>
+                                <form class="second-button" action="/edit-products/delete-item" method="POST">
+                                    <input type="hidden" name="id" value="<%= items.id%>">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button type="submit" class="btn btn-danger">Delete Item</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+
+        </main>
+
+
+
+
+</body>
+
+</html>

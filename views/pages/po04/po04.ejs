@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../includes/header.ejs %>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
+</head>
+
+<body>
+    <% include ../../includes/shopnav.ejs %>
+        <main>
+            <div class="items-display">
+                <% data.forEach(items => { %>
+                    <div class="card" style="width: 18rem;" class="product-shop">
+                        <img class="card-img-top" src="<%= items.imageUrl %>" alt="Product for Shoping">
+                        <div class="card-body">
+                            <h5 class="card-title" class="title">
+                                <%= items.title %> - R$
+                                    <%= items.price %>
+                            </h5>
+                            <p class="card-text">
+                                <%= items.description %>
+                            </p>
+                            <% if (isAuthenticated) { %>
+                                <form action="/shop-item" method="POST">
+                                    <input type="hidden" name="id" value="<%= items.id%>">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button type="submit" class="btn btn-primary">Shop</button>
+                                </form>
+                                <% } %>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+        </main>
+
+
+
+
+</body>
+
+</html>
