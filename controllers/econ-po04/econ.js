@@ -11,7 +11,7 @@ exports.shop = (req, res, next) => {
         //rend the page with the products
         .then(products => {
             res.render('pages/po04/po04', {
-                path: '/',
+                path: 'shop',
                 data: products,
                 activeTA04: true,
                 contentCSS: true,
@@ -48,7 +48,7 @@ exports.cartDisplay = (req, res, next) => {
         .then(user => {
             const products = user.cart.items;
             res.render('pages/po04/cart', {
-                path: '/cart',
+                path: 'cart',
                 items: products
             });
         })
@@ -72,7 +72,7 @@ exports.removeItemFromCart = (req, res, next) => {
  * *****************************************/
 exports.addProduct = (req, res, next) => {
     res.render('pages/po04/add-products', {
-        path: '/add-products',
+        path: 'add-product',
         contentCSS: true,
 
     });
@@ -116,7 +116,7 @@ exports.editingProduct = (req, res, next) => {
         //rend the page with the products
         .then(products => {
             res.render('pages/po04/edit-products', {
-                path: '/po04',
+                path: 'edit-products',
                 data: products,
                 activeTA04: true,
                 contentCSS: true,
@@ -137,7 +137,7 @@ exports.editItem = (req, res, next) => {
     Product.findById(currentID).then(item => {
         //rend the page where the element can be editted
         res.render('pages/po04/edit-item', {
-            path: '/po04/edit-item',
+            path: 'edit-item',
             data: item,
             activeTA04: true,
             contentCSS: true,

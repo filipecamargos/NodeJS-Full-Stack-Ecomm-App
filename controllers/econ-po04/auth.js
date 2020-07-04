@@ -24,6 +24,7 @@ exports.getLogin = (req, res, next) => {
         message = null;
     }
     res.render('auth/login', {
+        path: "login",
         errorMessage: message,
         oldInput: {
             email: '',
@@ -41,6 +42,7 @@ exports.getSignup = (req, res, next) => {
         message = null;
     }
     res.render('auth/signup', {
+        path: "signup",
         errorMessage: message,
         oldInput: {
             email: '',
@@ -58,6 +60,7 @@ exports.postLogin = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).render('auth/login', {
+            path: "login",
             errorMessage: errors.array()[0].msg,
             oldInput: {
                 email: email,
@@ -71,6 +74,7 @@ exports.postLogin = (req, res, next) => {
         .then(user => {
             if (!user) {
                 return res.status(422).render('auth/login', {
+                    path: "login",
                     errorMessage: 'Invalid email or password.',
                     oldInput: {
                         email: email,
@@ -91,6 +95,7 @@ exports.postLogin = (req, res, next) => {
                         });
                     }
                     return res.status(422).render('auth/login', {
+                        path: "login",
                         errorMessage: 'Invalid email or password.',
                         oldInput: {
                             email: email,
@@ -119,6 +124,7 @@ exports.postSignup = (req, res, next) => {
     if (!errors.isEmpty()) {
         console.log(errors.array());
         return res.status(422).render('auth/signup', {
+            path: "signup",
             errorMessage: errors.array()[0].msg,
             oldInput: {
                 email: email,
@@ -149,7 +155,7 @@ exports.postSignup = (req, res, next) => {
         });
 };
 
-exports.postLogout = (req, res, next) => {
+exports.getLogout = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);
         res.redirect('/');
@@ -165,7 +171,7 @@ exports.getReset = (req, res, next) => {
         message = null;
     }
     res.render('auth/reset', {
-        path: '/reset',
+        path: '/resetres',
         pageTitle: 'Reset Password',
         errorMessage: message
     });

@@ -12,7 +12,7 @@ const flash = require('connect-flash');
 
 const User = require("./model/econ-po04/user");
 
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://cs341:VfP2xOJvOONEBDfK@cluster0-c8oj0.mongodb.net/test?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://cs341:VfP2xOJvOONEBDfK@cluster0-c8oj0.mongodb.net/Ecommerce?retryWrites=true&w=majority";
 
 const app = express();
 const store = new MongoDBStore({
@@ -86,6 +86,7 @@ mongoose
     )
     .then(result => {
         app.listen(PORT);
+        console.log("Running on: localhost:5000")
     })
     .catch(err => {
         console.log(err);

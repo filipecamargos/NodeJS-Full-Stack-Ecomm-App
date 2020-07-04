@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 .card-img-top {
     width: 200px;
     height: 180px;
@@ -51,4 +52,55 @@
 .form-control input.invalid,
 .form-control textarea.invalid {
     border-color: red;
+}
+
+#nav-bar-shopping {
+    background-color: rgba(184, 206, 245, 1);
+    border-color: rgba(184, 206, 245, 1);
+    position: fixed;
+    width: 100%;
+}
+
+#myNavbar a {
+    color: #000000;
+    font-size: 17px;
+    font-size: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#myNavbar a:hover {
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+.selected {
+    border-bottom: 5px solid #492be0;
+    border-radius: 3px;
+}
+
+.myForm {
+    width: 280px;
+    background-color: rgba(217, 236, 223, 0.74);
+    padding: 15px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+.myForm input {
+    background-color: rgba(241, 248, 243, 0.83);
+}
+
+.myform-container-page {
+    text-align: center;
+    padding-top: 120px;
+    height: 100%;
+    width: 100%;
+}
+
+#signup {
+    background-image: url("../images/backgrpungsingin.jpeg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
 }
