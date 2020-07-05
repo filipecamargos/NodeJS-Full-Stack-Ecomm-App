@@ -6,30 +6,41 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
 </head>
 
-<body>
+<body id="signup">
     <% include ../includes/shopnav.ejs %>
 
         <main>
-            <% if (errorMessage) { %>
-                <div class="user-message user-message--error">
-                    <%= errorMessage %>
-                </div>
-                <% } %>
-                    <form class="login-form" action="/login" method="POST">
-                        <div class="form-control">
+            <div class="myform-container-page">
+                <div class="myForm">
+                    <h2>Please Login</h2>
+                    <hr>
+                    <form action="/login" method="POST">
+                        <div>
                             <label for="email">E-Mail</label>
-                            <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="email" name="email" id="email" value="<%= oldInput.email %>">
+                            <input class="form-control" class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="email" name="email" id="email" value="<%= oldInput.email %>">
                         </div>
-                        <div class="form-control">
+                        <br>
+                        <div>
                             <label for="password">Password</label>
-                            <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" type="password" name="password" id="password" value="<%= oldInput.password %>">
+                            <input class="form-control" class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" type="password" name="password" id="password" value="<%= oldInput.password %>">
                         </div>
+                        <br>
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                        <button class="btn" type="submit">Login</button>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <% if (errorMessage) { %>
+                                <span class="error-message">
+                            <%= errorMessage %>
+                        </span>
+                                <% } %>
+                        </div>
                     </form>
+                    <br>
                     <div class="centered">
                         <a href="/reset">Reset Password</a>
                     </div>
+                </div>
+            </div>
         </main>
 </body>
 
