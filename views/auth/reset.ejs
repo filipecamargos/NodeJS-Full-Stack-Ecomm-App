@@ -6,23 +6,27 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
 </head>
 
-<body>
+<body id="signup">
     <% include ../includes/shopnav.ejs %>
         <main>
             <div style="padding-top: 100px;">
-                <% if (errorMessage) { %>
-                    <div class="user-message user-message--error">
-                        <%= errorMessage %>
-                    </div>
-                    <% } %>
-                        <form class="login-form" action="/reset" method="POST">
-                            <div class="form-control">
-                                <label for="email">E-Mail</label>
-                                <input type="email" name="email" id="email">
-                            </div>
-                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                            <button class="btn" type="submit">Reset Password</button>
-                        </form>
+                <div class="myForm" style="margin: 0% 40% 0%;">
+                    <h2>Reset Password</h2>
+                    <form action="/reset" method="POST">
+                        <div>
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" name="email" id="email">
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <br>
+                        <button class="btn btn-primary" type="submit">Reset Password</button>
+                        <% if (errorMessage) { %>
+                            <span class="error-message" style="color: red;">
+                                <%= errorMessage %>
+                            </span>
+                            <% } %>
+                    </form>
+                </div>
             </div>
 
         </main>

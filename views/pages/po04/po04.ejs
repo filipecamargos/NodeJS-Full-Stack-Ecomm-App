@@ -6,17 +6,22 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
 </head>
 
-<body>
+<body id="shopping-body">
     <% include ../../includes/shopnav.ejs %>
-        <main>
+        <main id="shopping">
+            <hr>
+            <h1>Shopping Items</h1>
+            <hr>
             <div class="items-display">
                 <% data.forEach(items => { %>
                     <div class="card" style="width: 18rem;" class="product-shop">
-                        <img class="card-img-top" src="<%= items.imageUrl %>" alt="Product for Shoping">
+                        <img class="card-img-top" src="<%= items.imageUrl %>" alt="Product for Shoping" style="margin-top: 50px;">
                         <div class="card-body">
                             <h5 class="card-title" class="title">
-                                <%= items.title %> - R$
-                                    <%= items.price %>
+                                <%= items.title %>
+                            </h5>
+                            <h5>R$
+                                <%= items.price.toFixed(2) %>
                             </h5>
                             <p class="card-text">
                                 <%= items.description %>
