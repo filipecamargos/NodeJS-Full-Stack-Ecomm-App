@@ -12,7 +12,9 @@ const flash = require('connect-flash');
 
 const User = require("./model/econ-po04/user");
 
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://cs341:VfP2xOJvOONEBDfK@cluster0-c8oj0.mongodb.net/Ecommerce?retryWrites=true&w=majority";
+const Private = require('./private')
+
+const MONGODB_URL = process.env.MONGODB_URL || Private.db;
 
 const app = express();
 const store = new MongoDBStore({
@@ -23,7 +25,7 @@ const csrfProtection = csrf();
 
 
 const corsOptions = {
-    origin: "https://intense-basin-74673.herokuapp.com/",
+    origin: Private.url,
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -46,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')))
     .use(bodyParser({ extended: false })) // For parsing the body of a POST
     .use(
         session({
-            secret: 'my secret',
+            secret: Private.mySecreat,
             resave: false,
             saveUninitialized: false,
             store: store

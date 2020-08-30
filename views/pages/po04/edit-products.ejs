@@ -6,9 +6,12 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/shoping.css" />
 </head>
 
-<body>
+<body id="shopping-body">
     <% include ../../includes/shopnav.ejs %>
-        <main>
+        <main id="shopping">
+            <hr>
+            <h1>Manager Item</h1>
+            <hr>
             <div class="items-display">
                 <% data.forEach(items => { %>
                     <div class="card" style="width: 18rem;" class="product-shop">
