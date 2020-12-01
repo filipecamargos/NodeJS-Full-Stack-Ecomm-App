@@ -6,11 +6,12 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 const { validationResult } = require('express-validator/check');
 
 const User = require('../../model/econ-po04/user');
+const Private = require('../../private')
 
 const transporter = nodemailer.createTransport(
     sendgridTransport({
         auth: {
-            api_key: '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'
+            api_key: Private.transporter_apiKey
         }
     })
 );
